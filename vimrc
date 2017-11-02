@@ -4,6 +4,12 @@
 " Some magic for syntax plugins like haskell-vim
 syntax on
 
+" Get those line numbers
+:set number
+
+" I'm a fan of highlighted current lines
+:set cursorline
+
 " Sane indentation
 filetype plugin indent on
 set autoindent
@@ -18,7 +24,13 @@ nnoremap K gkzz
 nnoremap j gj
 nnoremap k gk
 
+" Better view-switching
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " NERD Tree hotkey
-map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeToggle<CR>
 
 execute pathogen#infect()
