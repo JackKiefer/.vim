@@ -11,12 +11,16 @@ syntax on
 :set cursorline
 
 " Sane indentation
+:filetype on
 filetype plugin indent on
 set autoindent
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+" Fix for Haskell indentation
+autocmd FileType haskell setlocal smartindent
 
 " Better scrolling
 nnoremap J gjzz
