@@ -1,10 +1,22 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+call plug#end()
+
 " The color scheme for a true DOVAHKIIN 
-:color alduin
+":color alduin
+:colorscheme sublimemonokai
+":let g:sublimemonokai_term_italic = 1
+
+" 80-character line
+:set cc=80
+
 
 " Fix paren/bracket matching highlights
-:let g:alduin_Shout_Aura_Whisper = 1
+":let g:alduin_Shout_Aura_Whisper = 1
 
-" Some magic for syntax plugins like Haskell-Vim
+" Some magic for syntax plugins like Haskell-Vim and Syntastic
 syntax on
 
 " Get those line numbers
@@ -91,15 +103,25 @@ hi SpellBad cterm=underline
 :command WriteMode Goyo 80 | PencilSoft
 map <C-p> :WriteMode<CR>
 
+autocmd FileType python :hi semshiSelected ctermfg=231 ctermbg=235 cterm=bold
+hi Comment ctermfg=243 cterm=italic
+hi MatchParen ctermfg=231 ctermbg=235 cterm=bold
+
+" Semshi commands
+nmap <silent> <Tab> :Semshi goto name next<CR>
+nmap <silent> <S-Tab> :Semshi goto name prev<CR>
+nmap <silent> <leader>rr :Semshi rename<CR>
+
+function! PyCommentChunk()
+  let colnum = col('.')
+  let lineNum = line('.')
+  :normal j
+  :exe (":normal " . colnum . "i#")
+  :exe cursor(lineNum,colnum+1)
+endfunction
+
+nmap <silent> <leader>c :execute PyCommentChunk()<CR>
+
+
+" Pathogen load
 execute pathogen#infect()
-
-" Python highlighting tweaks
-:let g:python_highlight_all = 1
-:let g:python_highlight_space_errors = 0
-:let g:python_highlight_indent_errors = 0
-:hi pythonStatement guifg=#878787 guibg=NONE gui=NONE ctermfg=102 ctermbg=NONE cterm=bold
-:hi pythonInclude guifg=#dfaf87 guibg=NONE gui=NONE ctermfg=180 ctermbg=NONE cterm=bold
-:hi pythonImport guifg=#dfaf87 guibg=NONE gui=NONE ctermfg=180 ctermbg=NONE cterm=bold
-:hi pythonFunction guifg=#875f5f guibg=NONE gui=NONE ctermfg=95 ctermbg=NONE cterm=NONE
-:hi Type guifg=#af875f guibg=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=bold
-
