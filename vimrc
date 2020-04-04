@@ -88,9 +88,6 @@ function! MathAndLiquid()
     hi link math_block Function
 endfunction
 
-" Call everytime we open a Markdown file
-autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
-
 " Auto recompilation of markdown files with F3
 autocmd FileType markdown nmap <F3> <ESC>:w<CR> :!pand '%:t'<CR>:redraw<CR>
 
@@ -122,6 +119,8 @@ endfunction
 
 nmap <silent> <leader>c :execute PyCommentChunk()<CR>
 
+" Call everytime we open a Markdown file
+autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
 
 " Pathogen load
 execute pathogen#infect()
