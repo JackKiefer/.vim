@@ -1,3 +1,21 @@
 [submodule "bundle/dracula-theme"]
 	path = bundle/dracula-theme
 	url = git@github.com:dracula/vim.git
+[submodule "bundle/goyo.vim"]
+	path = bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule "bundle/vim-markdown-folding"]
+	path = bundle/vim-markdown-folding
+	url = https://github.com/masukomi/vim-markdown-folding
+[submodule "bundle/vim-pencil"]
+	path = bundle/vim-pencil
+	url = https://github.com/reedes/vim-pencil
+[submodule "plugged/semshi"]
+	path = plugged/semshi
+	url = https://github.com/numirias/semshi
+[submodule "bundle/semshi"]
+	path = bundle/semshi
+	url = https://github.com/numirias/semshi
