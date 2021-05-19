@@ -19,3 +19,6 @@
 [submodule "bundle/semshi"]
 	path = bundle/semshi
 	url = https://github.com/numirias/semshi
+[submodule "bundle/comfortable-motion.vim"]
+	path = bundle/comfortable-motion.vim
+	url = https://github.com/yuttie/comfortable-motion.vim

@@ -13,8 +13,8 @@
 " Some magic for syntax plugins like Haskell-Vim and Syntastic
 syntax on
 
-" Get those line numbers
-:set number
+" Get those relative line numbers
+:set relativenumber
 
 " I'm a fan of highlighted current lines
 :set cursorline
@@ -37,19 +37,18 @@ au FileType markdown setl sw=4 sts=4 et
 nnoremap H J
 
 " Better scrolling 
-nnoremap J gjzz
-nnoremap K gkzz
+set scrolloff=999
+set noshowcmd noruler
+set mouse=a
 nnoremap j gj
 nnoremap k gk
+nnoremap <silent> <C-j> :call comfortable_motion#flick(100) <CR>
+nnoremap <silent> <C-k> :call comfortable_motion#flick(-100)<CR>
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 
 " Autocorrect spelling mistake to first choice
 nnoremap z1 z=1<CR><CR>
-
-" Better view-switching
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 " NERD Tree hotkey
 map <C-m> :NERDTreeToggle<CR>
